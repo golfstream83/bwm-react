@@ -1,21 +1,24 @@
 import React from 'react';
-import {RentalCard} from "./RentalCard";
+import {RentalCard} from './RentalCard';
+import {connect} from 'react-redux';
+import * as actions from '../../actions';
 
-export class RentalList extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            rentals: [1, 2, 3]
-        };
-    }
+class RentalList extends React.Component {
 
     renderRentals() {
-        return this.state.rentals.map((rental, index) =>{
+        return this.props.rentals.map((rental, index) =>{
             return (
-                <RentalCard key={index} colNum='col-md-3 col-xs-6' />
+                <RentalCard
+                    key={index}
+                    colNum='col-md-3 col-xs-6'
+                    rental={rental}
+                />
             )
         });
+    }
+
+    componentWillMount() {
+        this.props.dispatch(actions.fetchRentals())
     }
 
     render() {
@@ -29,3 +32,11 @@ export class RentalList extends React.Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        rentals: state.rentals.data
+    }
+}
+
+export default connect(mapStateToProps)(RentalList)
