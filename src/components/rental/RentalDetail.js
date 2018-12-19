@@ -13,11 +13,17 @@ export class RentalDetail extends React.Component {
     render() {
         const rental = this.props.rental;
 
-        return (
-            <div>
-                <h1>I am rental detail component {rental.title}</h1>
-            </div>
-        );
+        if (rental.id) {
+            return (
+                <div>
+                    <h1>I am rental detail component {rental.title}</h1>
+                </div>
+            );
+        } else {
+            return (
+                <h1>Loading...</h1>
+            )
+        }
     }
 }
 
