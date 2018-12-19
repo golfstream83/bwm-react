@@ -7,13 +7,13 @@ export class RentalList extends React.Component {
 
         this.state = {
             rentals: [1, 2, 3]
-        }
+        };
     }
 
     renderRentals() {
-        return this.state.rentals.map((rental) =>{
+        return this.state.rentals.map((rental, index) =>{
             return (
-                <RentalCard />
+                <RentalCard key={index} colNum='col-md-3 col-xs-6' />
             )
         });
     }

@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function RentalCard() {
+export function RentalCard(props) {
     return (
-        <div className="col-md-3 col-xs-6">
+        <div className={props.colNum}>
             <div className="card bwm-card">
                 <img className="card-img-top" src="http://via.placeholder.com/350x250" alt=""></img>
                 <div className="card-block">
