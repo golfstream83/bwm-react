@@ -1,37 +1,9 @@
+import axios from 'axios';
 import {
-    FETCH_RENTALS,
+    FETCH_RENTALS_SUCCESS,
     FETCH_RENTAL_BY_ID_SUCCESS,
     FETCH_RENTAL_BY_ID_INIT
 } from "./types";
-
-const rentals = [
-    {
-        id: "1",
-        title: "Central Apartment",
-        city: "New York",
-        street: "Times Square",
-        category: "apartment",
-        image: "http://via.placeholder.com/350x250",
-        bedrooms: 3,
-        description: "Very nice apartment",
-        dailyRate: 34,
-        shared: false,
-        createdAt: "24/12/2017"
-    },
-    {
-        id: "2",
-        title: "Central Apartment",
-        city: "New York",
-        street: "Times Square",
-        category: "apartment",
-        image: "http://via.placeholder.com/350x250",
-        bedrooms: 3,
-        description: "Very nice apartment",
-        dailyRate: 34,
-        shared: false,
-        createdAt: "24/12/2017"
-    }
-];
 
 const fetchRentalByIdInit = () => {
     return {
@@ -46,19 +18,26 @@ const fetchRentalByIdSuccess = (rental) => {
     }
 };
 
-export const fetchRentals = () => {
+const fetchRentalSuccess = (rentals) => {
     return {
-        type: FETCH_RENTALS,
+        type: FETCH_RENTALS_SUCCESS,
         rentals
     }
+};
+
+export const fetchRentals = () => {
+    return dispatch => {
+        axios.get('/api/v1/rentals')
+            .then(res => res.data)
+            .then(rentals => dispatch(fetchRentalSuccess(rentals)))
+    };
 };
 
 export const fetchRentalById = (rentalId) => {
     return function(dispatch) {
         dispatch(fetchRentalByIdInit());
-        setTimeout(() => {
-            const rental = rentals.find((rental) => rental.id === rentalId);
-            dispatch(fetchRentalByIdSuccess(rental))
-        }, 1000);
+        axios.get(`/api/v1/rentals/${rentalId}`)
+            .then(res => res.data)
+            .then(rental => dispatch(fetchRentalByIdSuccess(rental)))
     };
 };
