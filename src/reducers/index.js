@@ -1,13 +1,18 @@
-import * as redux from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import {rentalReducer, selectedRentalReducer} from './rental-reducer';
+import {authReducer} from './auth-reducer';
 import thunk from 'redux-thunk';
+import {reducer as formReducer} from 'redux-form';
 
 export const init = () => {
-    const reducer = redux.combineReducers({
+    const reducer = combineReducers({
         rentals: rentalReducer,
-        rental: selectedRentalReducer
+        rental: selectedRentalReducer,
+        form: formReducer,
+        auth: authReducer
     });
-    const store = redux.createStore(reducer, redux.applyMiddleware(thunk));
 
-    return store;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+return createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 };
