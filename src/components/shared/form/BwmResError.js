@@ -1,7 +1,7 @@
 import React from 'react';
 
 export function BwmResError(props) {
-    const errors = props.errors;
+    const {errors = {}} = props;
 
     return(
         errors.length > 0 &&
