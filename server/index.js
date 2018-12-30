@@ -35,8 +35,8 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-const PORT = process.env.port || 3001;
+const PORT = process.env.PORT || 3001;
 
-app.listen(3001, function() {
+app.listen(PORT, function() {
     console.log('I am running');
 });
