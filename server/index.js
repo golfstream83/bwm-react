@@ -8,6 +8,7 @@ const rentalRoutes = require('./routes/rentals'),
       bookingRoutes = require('./routes/bookings');
 const path = require('path');
 
+mongoose.set('useCreateIndex', true);
 mongoose.connect(config.DB_URI).then(() => {
     if (process.env.NODE_ENV !== 'production') {
         const fakeDb = new FakeDb();
