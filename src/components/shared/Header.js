@@ -23,7 +23,7 @@ class Header extends React.Component {
 
         return (
             <React.Fragment>
-                <Link className='nav-item nav-link active' to='/login'>Login <span className='sr-only'></span></Link>
+                <Link className='nav-item nav-link' to='/login'>Login <span className='sr-only'></span></Link>
                 <Link className='nav-item nav-link' to='/register'>Register</Link>
             </React.Fragment>
         )
@@ -52,7 +52,7 @@ class Header extends React.Component {
         return (
             <nav className='navbar navbar-dark navbar-expand-lg'>
                 <div className='container'>
-                    <Link className='navbar-brand' to='/rentals'>BookWithMe
+                    <Link className='navbar-brand' to='/rentals'>Airbnb
                         <img src={process.env.PUBLIC_URL + '/img/react-logo.svg'} alt=""/>
                     </Link>
                     <RentalSearchInput />
