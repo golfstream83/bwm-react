@@ -57,7 +57,14 @@ const withGeocode = WrappedComponent => {
             this.getGeocodedLocation();
         }
 
+        componentDidUpdate() {
+            if (this.props.isReloading) {
+                this.getGeocodedLocation();
+            }
+        }
+
         updateCoordinates(coordinates) {
+            this.props.mapLoaded();
             this.setState({
                 coordinates,
                 isLocationLoaded: true
@@ -95,6 +102,7 @@ const withGeocode = WrappedComponent => {
                         this.updateCoordinates(coordinates);
                     },
                     (error) => {
+                        this.props.mapLoaded();
                         this.setState({
                             isError: true,
                             isLocationLoaded: true
@@ -105,6 +113,7 @@ const withGeocode = WrappedComponent => {
         }
 
         render() {
+
             return (
                 <WrappedComponent {...this.state} />
             );

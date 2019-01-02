@@ -15,6 +15,7 @@ import RentalSearchListing from './components/rental/rental-listing/RentalSearch
 import {RentalCreate} from './components/rental/rental-create/RentalCreate';
 import {RentalManage} from './components/rental/rental-manage/RentalManage';
 import BookingManage from './components/booking/booking-manage/BookingManage';
+import {ToastContainer} from 'react-toastify';
 
 const store = init();
 
@@ -37,6 +38,7 @@ class App extends Component {
             <Provider store={store}>
                 <BrowserRouter>
                     <div className='App'>
+                        <ToastContainer />
                         <Header logout={this.logout} />
                         <div className='container'>
                             <Switch>
