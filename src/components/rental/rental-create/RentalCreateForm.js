@@ -71,7 +71,6 @@ const RentalCreateForm = props => {
                 name="shared"
                 type="checkbox"
                 label='Shared'
-                className='form-control'
                 component={BwmInput}
             />
             <button className='btn btn-bwm btn-form' type="submit" disabled={!valid || pristine || submitting}>

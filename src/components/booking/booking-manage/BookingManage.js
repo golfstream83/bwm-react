@@ -26,7 +26,7 @@ export class BookingManage extends React.Component{
                 {!isFetching && bookings.length === 0 &&
                     <div className='alert alert-warning'>
                         You have no bookings created go to rentals section and book your place today.
-                        <Link style={{'margin-left': '10px'}} class='btn btn-bwm' to='/rentals'>Available
+                        <Link style={{'marginLeft': '10px'}} className='btn btn-bwm' to='/rentals'>Available
                             Rental</Link>
                     </div>
                 }
