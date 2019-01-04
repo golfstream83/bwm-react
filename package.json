@@ -12,7 +12,7 @@
     "axios": "^0.18.0",
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.1.2",
     "bootstrap-daterangepicker": "^2.1.30",
     "camel-case": "^3.0.0",
     "express": "^4.16.4",
