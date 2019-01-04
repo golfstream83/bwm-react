@@ -16,6 +16,8 @@ import {RentalCreate} from './components/rental/rental-create/RentalCreate';
 import {RentalManage} from './components/rental/rental-manage/RentalManage';
 import BookingManage from './components/booking/booking-manage/BookingManage';
 import {ToastContainer} from 'react-toastify';
+import RentalUpdate from './components/rental/rental-detail/RentalUpdate';
+
 
 const store = init();
 
@@ -49,6 +51,7 @@ class App extends Component {
                                 <ProtectedRoute exact path='/bookings/manage' component={BookingManage} />
                                 <ProtectedRoute exact path='/rentals/new' component={RentalCreate} />
                                 <Route exact path='/rentals/:id' component={RentalDetail} />
+                                <Route exact path='/rentals/:id/edit' component={RentalUpdate} />
                                 <Route exact path='/login' component={Login} />
                                 <LoggedInRoute exact path='/register' component={Register} />
                             </Switch>
