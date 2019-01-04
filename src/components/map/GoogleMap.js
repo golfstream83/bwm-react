@@ -13,7 +13,7 @@ const MapComponent = props => {
 
     return (
         <GoogleMap
-            defaultZoom={13}
+            defaultZoom={15}
             defaultCenter={coordinates}
             center={coordinates}
             options={{disableDefaultUI: !!isError}}
@@ -21,7 +21,7 @@ const MapComponent = props => {
             {isLocationLoaded && !isError &&
                 <Circle
                     center={coordinates}
-                    radius={500}
+                    radius={200}
                 />
             }
             {isLocationLoaded && isError &&

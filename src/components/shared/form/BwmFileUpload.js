@@ -170,13 +170,15 @@ export class BwmFileUpload extends React.Component {
                 }
 
                 {initialImageBase64 &&
-                    <ReactCrop
-                        src={initialImageBase64}
-                        crop={crop}
-                        onChange={crop => this.onCropChange(crop)}
-                        onImageLoaded={image => this.onImageLoaded(image)}
-                        onComplete={(crop, pixelCrop) => this.onCropCompleted(crop, pixelCrop)}
-                    />
+                    <div className='mt-3'>
+                        <ReactCrop
+                            src={initialImageBase64}
+                            crop={crop}
+                            onChange={crop => this.onCropChange(crop)}
+                            onImageLoaded={image => this.onImageLoaded(image)}
+                            onComplete={(crop, pixelCrop) => this.onCropCompleted(crop, pixelCrop)}
+                        />
+                    </div>
                 }
 
                 {imageBase64 &&
