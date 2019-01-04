@@ -8,8 +8,5 @@
     "start": "node index.js"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bootstrap": "^4.1.2"
-  }
+  "license": "ISC"
 }
